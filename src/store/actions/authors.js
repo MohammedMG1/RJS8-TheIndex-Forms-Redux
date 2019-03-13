@@ -40,6 +40,11 @@ export const postAuthor = (newAuthor, closeModal) => {
       dispatch(filterAuthors(""));
       closeModal();
     } catch (err) {
+      console.log(err.response.data)
+      console.log(Object.keys(err.response.data))
+      console.log(Object.keys(err.response.data).map(
+        key => `${key}: ${err.response.data[key]}`
+      ))
       dispatch({
         type: actionTypes.SET_ERRORS,
         payload: err.response.data
